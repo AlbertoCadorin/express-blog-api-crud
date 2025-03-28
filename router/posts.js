@@ -1,6 +1,6 @@
 const express = require("express")
 const router  = express.Router()
-const postControllers = require('../controllers/posts-controller')
+const postControllers = require('../controllers/posts-controller.js')
 
 // index
 router.get('/', postControllers.index)

@@ -2,17 +2,17 @@ const postsList = require('../data/posts.js')
 
 function index(req,res) {
     let filteredPost = postsList
-    if (req.query.tags) {
+    if (req.query.id) {
 
-        filteredPost = post.filter(post => post.tags.includes(req.query.tags))
+        filteredPost = post.filter(post => post.id.includes(req.query.id))
 
     }
     res.json(filteredPost)
 }
 
 function show(req,res) {
-    const id = parseInt(req.param.id)
-    const postId = postsList.find( postId => postId === id)
+    const id = parseInt(req.params.id)
+    const postId = postsList.find( postId => postId.id === id)
   
     if (!postId){
       res.status(404)
@@ -26,26 +26,20 @@ function show(req,res) {
 }
 
 function store(req,res) {
-    const id = parseInt(req.param.id)
-    const postId = postsList.find( postId => postId === id)
-    res.send(`Modifica parziale ${postId}`)
+    res.send('Creazione nuovo post ' + req.params.id)
 }
 
 function update(req,res) {
-    const id = parseInt(req.param.id)
-    const postId = postsList.find( postId => postId === id)
-    res.send(`Modifica integrale ${postId}`)
+    res.send('Modifica integrale ' + req.params.id)
 }
 
 function modify(req,res) {
-    const id = parseInt(req.param.id)
-    const postId = postsList.find( postId => postId === id)
-    res.send(`Modifica parziale ${postId}`)
+    res.send('Modifica parziale ' + req.params.id)
 }
 
 function destroy(req,res) {
     const id = parseInt(req.param.id)
-    const postId = postsList.find( postId => postId === id)
+    const postId = postsList.find( postId => postId.id === id)
   
     if (!postId){
       res.status(404)
