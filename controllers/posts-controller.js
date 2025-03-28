@@ -46,7 +46,7 @@ function destroy(req,res) {
 
       return res.json({
         error :"Not Found",
-        message : "Post non trovato"
+        message : "Post gia eliminato"
         
       })
     }
