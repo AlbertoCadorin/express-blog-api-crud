@@ -6,10 +6,7 @@ const router = require('./router/posts.js')
 
 // public asset
 app.use(express.static('public/imgs/posts'))
-
-app.get('/', (req,res)=>{
-    res.send('Siamo dentro al server')
-})
+app.use(express.json())
 
 app.use('/posts', router)
 
