@@ -9,7 +9,7 @@ function index(req,res) {
   let filteredPost = postsList
   if (req.query.tags) {
 
-      filteredPost = post.filter(post => post.tags.includes(req.query.tags))
+      filteredPost = postsList.filter(post => post.tags.includes(req.query.tags))
 
   }
   res.json(filteredPost)
