@@ -1,8 +1,18 @@
+// importiamo i post
 const postsList = require('../data/posts.js')
+
+/// FUNZIONI ///
+
 
 // index
 function index(req,res) {
-    res.json(postsList)
+  let filteredPost = postsList
+  if (req.query.tags) {
+
+      filteredPost = post.filter(post => post.tags.includes(req.query.tags))
+
+  }
+  res.json(filteredPost)
 }
 
 // show
@@ -117,4 +127,6 @@ function destroy(req,res) {
     console.log(postsList)
 }
 
+
+// esporto le funzioni di controllo 
 module.exports = {index,show,store,update,modify,destroy}
